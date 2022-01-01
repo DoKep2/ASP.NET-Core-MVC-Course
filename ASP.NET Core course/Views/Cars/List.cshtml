@@ -1,0 +1,18 @@
+@*@{
+    ViewData["Title"] = "List";
+}*@
+
+
+<h1>List</h1>
+<h2>All cars</h2>
+<h3>@Model.CurrentCategory</h3>
+@{
+    foreach (var car in Model.AllCars)
+    {
+        <div>
+            <h3>Model: @car.Name</h3>
+            <p>Price: @car.Price.ToString("c")</p>
+        </div>
+    }
+}
+
