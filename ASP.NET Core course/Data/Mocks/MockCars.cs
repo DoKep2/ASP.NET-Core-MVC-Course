@@ -16,15 +16,37 @@ namespace ASP.NET_Core_course.Data.Mocks
                 {
                     new Car
                     {
-                        Name = "Tesla",
-                        ShortDescription = "",
-                        LongDescription = "",
-                        Img = "",
-                        Price = 5555,
+                        Name = "Tesla Model S",
+                        ShortDescription = "Fast car",
+                        LongDescription = "Cool, fast and quiet car Tesla company",
+                        Img = "/img/Tesla Model S.jpg",
+                        Price = 45000,
                         IsFavourite = true,
                         IsAvailable = true,
                         Category = _carsCategory.AllCategories.First()
-                    }
+                    },
+                    new Car
+                    {
+                        Name = "Ford Fiesta",
+                        ShortDescription = "Quiet and calm",
+                        LongDescription = "Comfortable car for city life",
+                        Img = "/img/Ford Fiesta.jpg",
+                        Price = 11000,
+                        IsFavourite = false,
+                        IsAvailable = true,
+                        Category = _carsCategory.AllCategories.Last()
+                    },
+                    new Car
+                    {
+                        Name = "BMW M3",
+                        ShortDescription = "Cool and stylish",
+                        LongDescription = "Comfortable car for city life",
+                        Img = "/img/BMW M3.jpg",
+                        Price = 65000,
+                        IsFavourite = true,
+                        IsAvailable = true,
+                        Category = _carsCategory.AllCategories.Last()
+                    },
                 };
             }
         }
