@@ -9,5 +9,8 @@ namespace ASP.NET_Core_course.Data
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ShopCartItem> ShopCartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }

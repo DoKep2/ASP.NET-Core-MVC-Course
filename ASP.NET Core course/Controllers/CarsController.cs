@@ -1,4 +1,9 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using ASP.NET_Core_course.Data.Interfaces;
+using ASP.NET_Core_course.Data.Models;
 using ASP.NET_Core_course.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,13 +19,27 @@ namespace ASP.NET_Core_course.Controllers
             _allCars = allCars;
             _carsCategory = carsCategory;
         }
-
-        public ViewResult List()
+        [Route("Cars/List")]
+        [Route("Cars/List/{category}")]
+        public ViewResult List(string category)
         {
+            IEnumerable<Car> carsToShow;
+            string currentCategory = string.Empty;
+            if (string.IsNullOrEmpty(category))
+            {
+                carsToShow = _allCars.GetAll.OrderBy(car => car.Id);
+            }
+            else
+            {
+                carsToShow = _allCars.GetAll
+                    .Where(car => car.Category.name.Equals(category, StringComparison.OrdinalIgnoreCase))
+                    .OrderBy(car => car.Id);
+                currentCategory = category;
+            }
             ViewBag.Title = "Page with cars";
             CarListViewModel model = new CarListViewModel();
-            model.AllCars = _allCars.GetAll;
-            model.CurrentCategory = "Cars";
+            model.AllCars = carsToShow;
+            model.CurrentCategory = currentCategory;
             return View(model);
         }
     }

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using ASP.NET_Core_course.Data.Interfaces;
 using ASP.NET_Core_course.Data.Models;

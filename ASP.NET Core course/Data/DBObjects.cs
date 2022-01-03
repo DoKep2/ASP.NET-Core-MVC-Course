@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ASP.NET_Core_course.Data.Models;
@@ -16,6 +17,7 @@ namespace ASP.NET_Core_course.Data
             if (!content.Categories.Any())
             {
                 content.Categories.AddRange(Categories.Select(c => c.Value));
+                content.SaveChanges();
             }
 
             if (!content.Cars.Any())
@@ -29,10 +31,10 @@ namespace ASP.NET_Core_course.Data
                             ShortDescription = "Fast car",
                             LongDescription = "Cool, fast and quiet car Tesla company",
                             Img = "/img/Tesla Model S.jpg",
-                            Price = 45000,
+                            Price = 55000,
                             IsFavourite = true,
                             IsAvailable = true,
-                            Category = Categories["Electro"]
+                            Category = new Category {name = "Electro", description = "Electro desc"},
                         },
                         new Car
                         {
@@ -43,7 +45,7 @@ namespace ASP.NET_Core_course.Data
                             Price = 11000,
                             IsFavourite = false,
                             IsAvailable = true,
-                            Category = Categories["Petrol"]
+                            Category = new Category {name = "Petrol", description = "Petrol desc"},
                         },
                         new Car
                         {
@@ -54,7 +56,7 @@ namespace ASP.NET_Core_course.Data
                             Price = 65000,
                             IsFavourite = true,
                             IsAvailable = true,
-                            Category = Categories["Petrol"]
+                            Category = new Category {name = "Petrol", description = "Petrol desc"},
                         },
                     });
             }
